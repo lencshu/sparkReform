@@ -13,64 +13,102 @@
 </head>
 
 <body>
-    <p class="append-buttons">
-        <!-- <a href="#" class="personalSlides">个人主页</a> -->
-        <a href="#" class="slide-1">行情</a>
-        <a href="#" class="slide-2">交易平台</a>
-        <a href="#" class="slide-3">新手</a>
-        <a href="#" class="slide-4">查询</a>
-        <a href="#" class="slide-5">钱包</a>
-        <!-- <a href="#" class="slide-6">挖矿</a>
-        <a href="#" class="slide-7">项目</a>
-        <a href="#" class="slide-8">媒体</a>
-        <a href="#" class="slide-9">社区</a>
-        <a href="#" class="slide-10">新手</a> -->
-        <!-- <a href="#" class="append-slide">Append Slide</a> -->
-    </p>
+<p class="append-buttons">
+    <!-- <a href="#" class="personalSlides">个人主页</a> -->
+    <a href="#" class="slide-1">行情</a>
+    <a href="#" class="slide-2">交易平台</a>
+    <a href="#" class="slide-3">新手</a>
+    <a href="#" class="slide-4">查询</a>
+    <a href="#" class="slide-5">钱包</a>
+    <!-- <a href="#" class="slide-6">挖矿</a>
+                            <a href="#" class="slide-7">项目</a>
+                            <a href="#" class="slide-8">媒体</a>
+                            <a href="#" class="slide-9">社区</a>
+                            <a href="#" class="slide-10">新手</a> -->
+    <!-- <a href="#" class="append-slide">Append Slide</a> -->
+</p>
 <!-- Slider main container -->
 <div class="swiper-container">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">行情</div>
-        <div class="swiper-slide">交易</div>
-        <div class="swiper-slide">新手</div>
-        <div class="swiper-slide">查询</div>
-        <div class="swiper-slide">钱包</div>
-        <div class="swiper-slide">挖矿</div>
-        <div class="swiper-slide">项目</div>
-        <div class="swiper-slide">媒体</div>
-        <div class="swiper-slide">社区</div>
+            <div class="swiper-slide menu">
+                登录
+                退出
+            </div>
+            <div class="swiper-slide content">
+                <div class="menu-button">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+            </div>
+                        <div class="swiper-slide">行情</div>
+                        <div class="swiper-slide">交易</div>
+                        <div class="swiper-slide">新手</div>
+                        <div class="swiper-slide">查询</div>
+                        <div class="swiper-slide">钱包</div>
+                        <div class="swiper-slide">挖矿</div>
+                        <div class="swiper-slide">项目</div>
+                        <div class="swiper-slide">媒体</div>
+                        <div class="swiper-slide">社区</div>
     </div>
 
 </div>
 
     <!-- Initialize Swiper -->
     <script>
-       var swiper = new Swiper('.swiper-container', {
-            speed: 400,
-            spaceBetween: 100,
-            effect: 'coverflow'
-        });
+    var menuButton = document.querySelector('.menu-button');
+    var openMenu = function () {
+        swiper.slidePrev();
+    };
+    var swiper = new Swiper('.swiper-container', {
+                    speed: 400,
+        // spaceBetween: 100,
+        // effect: 'coverflow',
+        slidesPerView: 'auto',
+        initialSlide: 1,
+        resistanceRatio: 0,
+        slideToClickedSlide: true,
+        on: {
+            slideChangeTransitionStart: function () {
+                var slider = this;
+                if (slider.activeIndex === 0) {
+                    menuButton.classList.add('cross');
+                    // required because of slideToClickedSlide
+                    menuButton.removeEventListener('click', openMenu, true);
+                } else {
+                    menuButton.classList.remove('cross');
+                }
+            }
+            , slideChangeTransitionEnd: function () {
+                var slider = this;
+                if (slider.activeIndex === 1) {
+                    menuButton.addEventListener('click', openMenu, true);
+                }
+            },
+        }
+    });
+ 
         document.querySelector('.slide-1').addEventListener('click', function (e) {
-            e.preventDefault();
-            swiper.slideTo(0, 400);
-        });
-        document.querySelector('.slide-2').addEventListener('click', function (e) {
             e.preventDefault();
             swiper.slideTo(1, 400);
         });
-        document.querySelector('.slide-3').addEventListener('click', function (e) {
+        document.querySelector('.slide-2').addEventListener('click', function (e) {
             e.preventDefault();
             swiper.slideTo(2, 400);
         });
+        document.querySelector('.slide-3').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.slideTo(3, 400);
+        });
             document.querySelector('.slide-4').addEventListener('click', function (e) {
                 e.preventDefault();
-                swiper.slideTo(3, 400);
+                swiper.slideTo(4, 400);
             });
             document.querySelector('.slide-5').addEventListener('click', function (e) {
                 e.preventDefault();
-                swiper.slideTo(4, 400);
+                swiper.slideTo(5, 400);
             });
     </script>
 </body>
