@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="./swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./swiper/dist/js/swiper.min.js"></script>
+
+</head>
+
+<body>
+    <p class="append-buttons">
+        <!-- <a href="#" class="personalSlides">个人主页</a> -->
+        <a href="#" class="slide-1">行情</a>
+        <a href="#" class="slide-2">交易平台</a>
+        <a href="#" class="slide-3">新手</a>
+        <a href="#" class="slide-4">查询</a>
+        <a href="#" class="slide-5">钱包</a>
+        <!-- <a href="#" class="slide-6">挖矿</a>
+        <a href="#" class="slide-7">项目</a>
+        <a href="#" class="slide-8">媒体</a>
+        <a href="#" class="slide-9">社区</a>
+        <a href="#" class="slide-10">新手</a> -->
+        <!-- <a href="#" class="append-slide">Append Slide</a> -->
+    </p>
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">行情</div>
+        <div class="swiper-slide">交易</div>
+        <div class="swiper-slide">新手</div>
+        <div class="swiper-slide">查询</div>
+        <div class="swiper-slide">钱包</div>
+        <div class="swiper-slide">挖矿</div>
+        <div class="swiper-slide">项目</div>
+        <div class="swiper-slide">媒体</div>
+        <div class="swiper-slide">社区</div>
+    </div>
+
+</div>
+
+    <!-- Initialize Swiper -->
+    <script>
+       var swiper = new Swiper('.swiper-container', {
+            speed: 400,
+            spaceBetween: 100,
+            effect: 'coverflow'
+        });
+        document.querySelector('.slide-1').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.slideTo(0, 400);
+        });
+        document.querySelector('.slide-2').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.slideTo(1, 400);
+        });
+        document.querySelector('.slide-3').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.slideTo(2, 400);
+        });
+            document.querySelector('.slide-4').addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(3, 400);
+            });
+            document.querySelector('.slide-5').addEventListener('click', function (e) {
+                e.preventDefault();
+                swiper.slideTo(4, 400);
+            });
+    </script>
+</body>
+
+</html>
