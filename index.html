@@ -27,89 +27,93 @@
                             <a href="#" class="slide-10">新手</a> -->
     <!-- <a href="#" class="append-slide">Append Slide</a> -->
 </p>
-<!-- Slider main container -->
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
+
+<div class="menu-swiper-container">
     <div class="swiper-wrapper">
-            <div class="swiper-slide menu">
-                登录
-                退出
+        <div class="swiper-slide menu">Menu slide</div>
+        <div class="swiper-slide content">
+            <div class="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-            <div class="swiper-slide content">
-                <div class="menu-button">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
+            <div class="content-swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">行情</div>
+                    <div class="swiper-slide">交易</div>
+                    <div class="swiper-slide">新手</div>
+                    <div class="swiper-slide">查询</div>
+                    <div class="swiper-slide">钱包</div>
+                    <div class="swiper-slide">挖矿</div>
+                    <div class="swiper-slide">项目</div>
+                    <div class="swiper-slide">媒体</div>
+                    <div class="swiper-slide">社区</div>
                 </div>
-
             </div>
-                        <div class="swiper-slide">行情</div>
-                        <div class="swiper-slide">交易</div>
-                        <div class="swiper-slide">新手</div>
-                        <div class="swiper-slide">查询</div>
-                        <div class="swiper-slide">钱包</div>
-                        <div class="swiper-slide">挖矿</div>
-                        <div class="swiper-slide">项目</div>
-                        <div class="swiper-slide">媒体</div>
-                        <div class="swiper-slide">社区</div>
+        </div>
     </div>
-
 </div>
+
+
 
     <!-- Initialize Swiper -->
     <script>
     var menuButton = document.querySelector('.menu-button');
-    var openMenu = function () {
-        swiper.slidePrev();
-    };
-    var swiper = new Swiper('.swiper-container', {
-                    speed: 400,
-        // spaceBetween: 100,
-        // effect: 'coverflow',
-        slidesPerView: 'auto',
-        initialSlide: 1,
-        resistanceRatio: 0,
-        slideToClickedSlide: true,
-        on: {
-            slideChangeTransitionStart: function () {
-                var slider = this;
-                if (slider.activeIndex === 0) {
-                    menuButton.classList.add('cross');
-                    // required because of slideToClickedSlide
-                    menuButton.removeEventListener('click', openMenu, true);
-                } else {
-                    menuButton.classList.remove('cross');
+        var openMenu = function () {
+            swiper.slidePrev();
+        };
+        var swiper = new Swiper('.menu-swiper-container', {
+            slidesPerView: 'auto',
+            initialSlide: 1,
+            resistanceRatio: 0,
+            slideToClickedSlide: true,
+            on: {
+                slideChangeTransitionStart: function () {
+                    var slider = this;
+                    if (slider.activeIndex === 0) {
+                        menuButton.classList.add('cross');
+                        // required because of slideToClickedSlide
+                        menuButton.removeEventListener('click', openMenu, true);
+                    } else {
+                        menuButton.classList.remove('cross');
+                    }
                 }
+                , slideChangeTransitionEnd: function () {
+                    var slider = this;
+                    if (slider.activeIndex === 1) {
+                        menuButton.addEventListener('click', openMenu, true);
+                    }
+                },
             }
-            , slideChangeTransitionEnd: function () {
-                var slider = this;
-                if (slider.activeIndex === 1) {
-                    menuButton.addEventListener('click', openMenu, true);
-                }
-            },
-        }
-    });
+        });
+    
+        
+        var contentSwiper = new Swiper('.content-swiper-container', {
+        speed: 400,
+        spaceBetween: 100,
+        effect: 'coverflow',
+            });
  
         document.querySelector('.slide-1').addEventListener('click', function (e) {
             e.preventDefault();
-            swiper.slideTo(1, 400);
+            contentSwiper.slideTo(1, 400);
         });
         document.querySelector('.slide-2').addEventListener('click', function (e) {
             e.preventDefault();
-            swiper.slideTo(2, 400);
+            contentSwiper.slideTo(2, 400);
         });
         document.querySelector('.slide-3').addEventListener('click', function (e) {
             e.preventDefault();
-            swiper.slideTo(3, 400);
+            contentSwiper.slideTo(3, 400);
         });
             document.querySelector('.slide-4').addEventListener('click', function (e) {
                 e.preventDefault();
-                swiper.slideTo(4, 400);
+                contentSwiper.slideTo(4, 400);
             });
             document.querySelector('.slide-5').addEventListener('click', function (e) {
                 e.preventDefault();
-                swiper.slideTo(5, 400);
-            });
+                contentSwiper.slideTo(5, 400);
+    });
     </script>
 </body>
 
