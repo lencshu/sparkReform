@@ -13,20 +13,20 @@
 </head>
 
 <body>
-<p class="append-buttons">
-    <!-- <a href="#" class="personalSlides">个人主页</a> -->
-    <a href="#" class="slide-1">行情</a>
-    <a href="#" class="slide-2">交易平台</a>
-    <a href="#" class="slide-3">新手</a>
-    <a href="#" class="slide-4">查询</a>
-    <a href="#" class="slide-5">钱包</a>
-    <!-- <a href="#" class="slide-6">挖矿</a>
-                            <a href="#" class="slide-7">项目</a>
-                            <a href="#" class="slide-8">媒体</a>
-                            <a href="#" class="slide-9">社区</a>
-                            <a href="#" class="slide-10">新手</a> -->
-    <!-- <a href="#" class="append-slide">Append Slide</a> -->
-</p>
+            <p class="append-buttons">
+                <!-- <a href="#" class="personalSlides">个人主页</a> -->
+                <a href="#" class="slide-1">行情</a>
+                <a href="#" class="slide-2">交易平台</a>
+                <a href="#" class="slide-3">新手</a>
+                <a href="#" class="slide-4">查询</a>
+                <a href="#" class="slide-5">钱包</a>
+                <!-- <a href="#" class="slide-6">挖矿</a>
+                                                    <a href="#" class="slide-7">项目</a>
+                                                    <a href="#" class="slide-8">媒体</a>
+                                                    <a href="#" class="slide-9">社区</a>
+                                                    <a href="#" class="slide-10">新手</a> -->
+                <!-- <a href="#" class="append-slide">Append Slide</a> -->
+            </p>
 
 <div class="menu-swiper-container">
     <div class="swiper-wrapper">
@@ -37,6 +37,7 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
+            <!-- content -->
             <div class="content-swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">行情</div>
@@ -60,7 +61,7 @@
     <script>
     var menuButton = document.querySelector('.menu-button');
         var openMenu = function () {
-            swiper.slidePrev();
+            swiper.slideTo(0, 400);
         };
         var swiper = new Swiper('.menu-swiper-container', {
             slidesPerView: 'auto',
